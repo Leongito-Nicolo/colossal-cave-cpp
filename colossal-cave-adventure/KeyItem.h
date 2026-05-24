@@ -1,11 +1,13 @@
-#ifndef KEYITEM_H
-#define KEYITEM_H
+#pragma once
 #include "Item.h"
 
 class KeyItem :
 	public Item
 {
-};
+public:
+	Obstacle obsToOpen;
+	KeyItem(string name, string description, Object objType, Obstacle obsToOpen);
 
-#endif
+	void Use(Room* room) override;
+};
 

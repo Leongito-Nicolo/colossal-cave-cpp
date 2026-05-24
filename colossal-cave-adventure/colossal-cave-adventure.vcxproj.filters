@@ -30,19 +30,10 @@
     <ClCompile Include="Room.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="Connection.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="KeyItem.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="PuzzleItem.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="TreasureItem.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="ToolItem.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="CommandParser.cpp">
@@ -52,6 +43,21 @@
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="CommandInterpreter.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandExecuter.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldManager.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Blocker.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementSystem.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSystem.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,19 +74,10 @@
     <ClInclude Include="Room.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="Connection.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="KeyItem.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="PuzzleItem.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="TreasureItem.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="ToolItem.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="CommandParser.h">
@@ -90,6 +87,24 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="CommandInterpreter.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandExecuter.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldManager.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Words.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Blocker.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementSystem.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemSystem.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

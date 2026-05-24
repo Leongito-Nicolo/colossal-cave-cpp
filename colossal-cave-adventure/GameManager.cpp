@@ -2,188 +2,67 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include "CommandInterpreter.h"
+#include "CommandExecuter.h"
+#include "WorldManager.h"
+#include "Player.h"
 
 using namespace std;
 
 void GameManager::StartGame()
 {
 	bool playing = true;
-	CommandInterpreter c;
-	while (playing)
+	WorldManager wm;
+	wm.InitializeRooms();
+	Player player = Player(wm.startRoom, wm.buildingRoom, wm.xyzzyTpRoom, wm.plughTpRoom);
+	CommandExecuter ce;
+
+	cout << "Welcome to Colossal cave adventure!!" << endl << endl;
+	cout << "Would you like instructions?" << endl;
+
+	string inst;
+
+	while (true)
+	{
+		cout << ">> ";
+		getline(cin, inst);
+
+		if (inst == "y" || inst == "yes")
+		{
+			cout << "Somewhere nearby is Colossal Cave, where others have found fortunes in treasure and gold, though it is rumored that some who enter are never seen again. Magic is said to work in the cave. I will be your eyes and hands. Direct me with commands of 1 or 2 words." << endl;
+			break;
+		}
+		else if (inst == "n" || inst == "no")
+		{
+			break;
+		}
+		else
+		{
+			cout << "Please answer yes or no" << endl;
+		}
+	}
+
+	cout << endl;
+	player.currentRoom->PrintInfo();
+
+	while (player.isPlaying)
 	{
 		string input;
 		cout << ">> ";
-		getline(std::cin, input);
-		auto s = c.InterpretCommand(input);
+		getline(cin, input);
 
-		switch (s.action)
+		if (input != "")
 		{
-		case Action::GO:
-			cout << "going ";
-			break;
-		case Action::TAKE:
-			cout << "taking ";
-			break;
-		case Action::LEAVE:
-			cout << "leaving ";
-			break;
-		case Action::LOOK:
-			cout << "looking ";
-			break;
-		case Action::INVENTORY:
-			cout << "open inv";
-			break;
-		case Action::ENTER:
-			cout << "entering ";
-			break;
-
-		case Action::EXIT:
-			cout << "exiting ";
-			break;
-
-		case Action::OPEN:
-			cout << "opening ";
-			break;
-
-		case Action::SWING:
-			cout << "swinging ";
-			break;
-
-		case Action::KILL:
-			cout << "killing ";
-			break;
-
-		case Action::XYZZY:
-			cout << "xyzzy";
-			break;
-
-		case Action::PLUGH:
-			cout << "plugh";
-			break;
-		default:
-			cout << "HUH??";
-			break;
+			cout << endl;
+			ce.ExecuteCommand(player, input);
 		}
 
-		switch (s.direction)
+		if (player.score == goalScore)
 		{
-		case Direction::NORTH:
-			cout << "north";
-			break;
-
-		case Direction::NORTHEAST:
-			cout << "northeast";
-			break;
-
-		case Direction::NORTHWEST:
-			cout << "northwest";
-			break;
-
-		case Direction::EAST:
-			cout << "east";
-			break;
-
-		case Direction::WEST:
-			cout << "west";
-			break;
-
-		case Direction::SOUTH:
-			cout << "south";
-			break;
-
-		case Direction::SOUTHEAST:
-			cout << "southeast";
-			break;
-
-		case Direction::SOUTHWEST:
-			cout << "southwest";
-			break;
-
-		case Direction::UP:
-			cout << "up";
-			break;
-
-		case Direction::DOWN:
-			cout << "down";
-			break;
+			player.isPlaying = false;
+			cout << "Congratulations, you won!" << endl;
 		}
 
-		switch (s.object)
-		{
-		case Object::KEYS:
-			cout << "keys";
-			break;
-
-		case Object::FOOD:
-			cout << "food";
-			break;
-
-		case Object::BOTTLE:
-			cout << "bottle";
-			break;
-
-		case Object::LAMP:
-			cout << "lamp";
-			break;
-
-		case Object::CAGE:
-			cout << "cage";
-			break;
-
-		case Object::GATE:
-			cout << "grate";
-			break;
-
-		case Object::BIRD:
-			cout << "bird";
-			break;
-
-		case Object::ROD:
-			cout << "rod";
-			break;
-
-		case Object::DIAMONDS:
-			cout << "diamonds";
-			break;
-
-		case Object::GOLD:
-			cout << "gold";
-			break;
-
-		case Object::SILVER:
-			cout << "silver";
-			break;
-
-		case Object::SNAKE:
-			cout << "snake";
-			break;
-
-		case Object::JEWELS:
-			cout << "jewels";
-			break;
-
-		case Object::VASE:
-			cout << "vase";
-			break;
-
-		case Object::EGG:
-			cout << "egg";
-			break;
-
-		case Object::OIL:
-			cout << "oil";
-			break;
-
-		case Object::WATER:
-			cout << "water";
-			break;
-
-		case Object::PLANT:
-			cout << "plant";
-			break;
-		}
-
-		cout << endl;
 	}
+
+	cout << "Thanks for playing!" << endl;
 }

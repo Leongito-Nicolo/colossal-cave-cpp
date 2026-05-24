@@ -2,9 +2,8 @@
 #include "CommandParser.h"
 class GameManager
 {
-	CommandParser parser;
-
 public:
+	const int goalScore = 6;
 	void StartGame();
 };
 
